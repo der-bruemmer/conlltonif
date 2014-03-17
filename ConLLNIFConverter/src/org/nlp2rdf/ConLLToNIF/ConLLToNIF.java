@@ -51,13 +51,17 @@ public class ConLLToNIF {
 		    		sentence.add(line);
 		    	}
 		    	else {
-		    		sentenceObjects = this.transformSentenceToObjects(sentence, offset);
-		    		//getting the endOffset from the last word of the sentence and adding 1 to account for space
-		    		offset = sentenceObjects.get(sentenceObjects.size()-1).getEnd()+1;
-		    		//maybe there should be a jena model where this method just adds phrases to
-		    		this.parseDependencyTree(sentenceObjects);
-		    		//write the resulting model
-		    		this.writeModel(fileOut);
+
+		    		if(!sentence.isEmpty()) {
+		    			sentenceObjects = this.transformSentenceToObjects(sentence, offset);
+			    		//getting the endOffset from the last word of the sentence and adding 1 to account for space
+			    		offset = sentenceObjects.get(sentenceObjects.size()-1).getEnd()+1;
+			    		//maybe there should be a jena model where this method just adds phrases to
+			    		this.parseDependencyTree(sentenceObjects);
+			    		//write the resulting model
+			    		this.writeModel(fileOut);
+		    		}   		
+		    		sentence = new ArrayList<String>();
 		    	}
 		    }
 		    reader.close();
@@ -82,12 +86,16 @@ public class ConLLToNIF {
 	
 	/**
 	 * Parse a dependency tree from generated objects
+	 * TODO: implement this thing
 	 * @param sentenceObjects
 	 */
 
 	private void parseDependencyTree(List<ConLLWord> sentenceObjects) {
 		//create the tree
-		
+		for(ConLLWord word : sentenceObjects) {
+			//test output
+			System.out.println(word.getWordString()+" "+word.getStart()+" "+word.getEnd()+" "+word.getPos());
+		}
 	}
 	
 	/**
@@ -102,6 +110,7 @@ public class ConLLToNIF {
 		List<ConLLWord> sentenceObjects = new ArrayList<ConLLWord>();
 		int offset = startOffset;
 		for(String line : sentence) {
+		
 			ConLLWord word =  getWordFromCorpusLine(line);
 			word.setStart(offset);
 			int wordEnd = offset+word.getWordString().length();
@@ -120,6 +129,7 @@ public class ConLLToNIF {
 	
 	private ConLLWord getWordFromCorpusLine(String line) {
 		ConLLWord word = new ConLLWord();
+		
 		String[] conllFields = line.split(" ");
 		word.setWordId(Integer.parseInt(conllFields[0]));
 		word.setWordString(conllFields[1]);
