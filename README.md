@@ -5,4 +5,9 @@ Goal of this project is to convert sufficiently arbitrary, depnedency annotated 
 
 #Initial version
 
-This repository contains an eclipse project with some java code. At the moment, it is able to parse the ConLL format and transform into custom java objects. An example resource is provided in /resources/sentence.conll
+This repository contains a maven project with some java code. At the moment, it is able to parse the ConLL format and output a turtle string in NIF. An example resource is provided in /resources/sentence.conll. Start via 
+
+````
+ConLLToNIFCLI $prefixUri $inputfile
+
+````
