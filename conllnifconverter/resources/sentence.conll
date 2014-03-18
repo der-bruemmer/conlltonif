@@ -1,0 +1,35 @@
+1 LinnUllmann LinnUllmann N NE _|Nom|Sg 2 subj _ _
+2 ist sein V VAFIN 3|Sg|Pres|Ind 0 root _ _
+3 die die ART ART Def|Fem|Nom|Sg 4 det _ _
+4 Tochter Tochter N NN Fem|Nom|Sg 2 pred _ _
+5 von von PREP APPR Dat 4 pp _ _
+6 LivUllmann LivUllmann N NE _|Dat|_ 5 pn _ _
+7 und und KON KON _ 6 kon _ _
+8 Ingmar Ingmar N NE _|Dat|_ 7 cj _ _
+9 Bergman Bergman N NE _|Dat|_ 8 app _ _
+10 . . $. $. _ 0 root _ _
+
+
+1 Johngrisham _ NNP NNP _ 2 nsubj _ _
+2 graduated _ VBD VBD _ 0 null _ _
+3 from _ IN IN _ 2 prep _ _
+4 Mississippistate _ NNP NNP _ 3 pobj _ _
+5 before _ IN IN _ 2 prep _ _
+6 attending _ VBG VBG _ 5 pcomp _ _
+7 the _ DT DT _ 8 det _ _
+8 University _ NNP NNP _ 6 dobj _ _
+9 of _ IN IN _ 8 prep _ _
+10 Mississippi_School _ NNP NNP _ 9 pobj _
+11 of _ IN IN _ 8 prep _ _
+12 Law _ NNP NNP _ 11 pobj _ _
+13 in _ IN IN _ 6 prep _ _
+14 1981 _ CD CD _ 13 pobj _ _
+15 and _ CC CC _ 6 cc _ _
+16 practiced _ VBN VBN _ 18 amod _ _
+17 criminal _ JJ JJ _ 18 amod _ _
+18 law _ NN NN _ 6 conj _ _
+19 for _ IN IN _ 6 prep _ _
+20 about _ IN IN _ 21 quantmod _ _
+21 a _ DT DT _ 19 pobj _ _
+
+
