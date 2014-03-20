@@ -1,0 +1,464 @@
+@prefix dc:      <http://purl.org/dc/elements/1.1/> .
+@prefix rdfs:    <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix olia:    <http://purl.org/olia/olia.owl#> .
+@prefix nif:     <http://persistence.uni-leipzig.org/nlp2rdf/ontologies/nif-core#> .
+@prefix owl:     <http://www.w3.org/2002/07/owl#> .
+@prefix xsd:     <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+
+nif:lemma
+      a       owl:DatatypeProperty .
+
+<http://conll.nlp2rdf.org/sentence.conll#char=20,27>
+      a       nif:Word , nif:String , nif:Phrase , nif:RFC5147String ;
+      nif:anchorOf "Tochter" ;
+      nif:beginIndex "20" ;
+      nif:dependencyRelationType
+              "pred" ;
+      nif:endIndex "27" ;
+      nif:head "2" ;
+      nif:lemma "Tochter" ;
+      nif:phraseHead "http://conll.nlp2rdf.org/sentence.conll#char=12,15" ;
+      nif:posTag "N" , "NN" ;
+      nif:sentence "http://conll.nlp2rdf.org/sentence.conll#char=0,63" .
+
+<http://conll.nlp2rdf.org/sentence.conll#char=32,42>
+      a       nif:Word , nif:String , nif:Phrase , nif:RFC5147String ;
+      nif:anchorOf "LivUllmann" ;
+      nif:beginIndex "32" ;
+      nif:dependencyRelationType
+              "pn" ;
+      nif:endIndex "42" ;
+      nif:head "5" ;
+      nif:lemma "LivUllmann" ;
+      nif:phraseHead "http://conll.nlp2rdf.org/sentence.conll#char=28,31" ;
+      nif:posTag "NE" , "N" ;
+      nif:sentence "http://conll.nlp2rdf.org/sentence.conll#char=0,63" .
+
+<http://conll.nlp2rdf.org/sentence.conll#char=61,62>
+      a       nif:Word , nif:String , nif:Phrase , nif:RFC5147String ;
+      nif:anchorOf "." ;
+      nif:beginIndex "61" ;
+      nif:dependencyRelationType
+              "root" ;
+      nif:endIndex "62" ;
+      nif:lemma "." ;
+      nif:posTag "$." ;
+      nif:sentence "http://conll.nlp2rdf.org/sentence.conll#char=0,63" .
+
+<http://conll.nlp2rdf.org/sentence.conll#char=213,214>
+      a       nif:Word , nif:String , nif:Phrase , nif:RFC5147String ;
+      nif:anchorOf "a" ;
+      nif:beginIndex "213" ;
+      nif:dependencyRelationType
+              "pobj" ;
+      nif:endIndex "214" ;
+      nif:head "19" ;
+      nif:phraseHead "http://conll.nlp2rdf.org/sentence.conll#char=203,206" ;
+      nif:posTag "DT" ;
+      nif:sentence "http://conll.nlp2rdf.org/sentence.conll#char=63,215" .
+
+<http://conll.nlp2rdf.org/sentence.conll#char=75,84>
+      a       nif:Word , nif:String , nif:Phrase , nif:RFC5147String ;
+      nif:anchorOf "graduated" ;
+      nif:beginIndex "75" ;
+      nif:dependencyRelationType
+              "null" ;
+      nif:endIndex "84" ;
+      nif:posTag "VBD" ;
+      nif:sentence "http://conll.nlp2rdf.org/sentence.conll#char=63,215" .
+
+nif:RFC5147String
+      a       owl:Class .
+
+nif:phraseHead
+      a       owl:ObjectProperty ;
+      rdfs:comment "The head of a Phrase." ;
+      rdfs:domain "http://persistence.uni-leipzig.org/nlp2rdf/ontologies/nif-core#Phrase" ;
+      rdfs:range "http://persistence.uni-leipzig.org/nlp2rdf/ontologies/nif-core#Phrase" .
+
+nif:String
+      a       owl:Class .
+
+nif:posTag
+      a       owl:DatatypeProperty .
+
+<http://conll.nlp2rdf.org/sentence.conll#char=207,212>
+      a       nif:Word , nif:String , nif:Phrase , nif:RFC5147String ;
+      nif:anchorOf "about" ;
+      nif:beginIndex "207" ;
+      nif:dependencyRelationType
+              "quantmod" ;
+      nif:endIndex "212" ;
+      nif:head "21" ;
+      nif:phraseHead "http://conll.nlp2rdf.org/sentence.conll#char=213,214" ;
+      nif:posTag "IN" ;
+      nif:sentence "http://conll.nlp2rdf.org/sentence.conll#char=63,215" .
+
+nif:isString
+      a       owl:DatatypeProperty .
+
+nif:anchorOf
+      a       owl:DatatypeProperty .
+
+<http://conll.nlp2rdf.org/sentence.conll#char=190,198>
+      a       nif:Word , nif:String , nif:Phrase , nif:RFC5147String ;
+      nif:anchorOf "criminal" ;
+      nif:beginIndex "190" ;
+      nif:dependencyRelationType
+              "amod" ;
+      nif:endIndex "198" ;
+      nif:head "18" ;
+      nif:phraseHead "http://conll.nlp2rdf.org/sentence.conll#char=199,202" ;
+      nif:posTag "JJ" ;
+      nif:sentence "http://conll.nlp2rdf.org/sentence.conll#char=63,215" .
+
+<http://conll.nlp2rdf.org/sentence.conll#char=142,160>
+      a       nif:Word , nif:String , nif:Phrase , nif:RFC5147String ;
+      nif:anchorOf "Mississippi_School" ;
+      nif:beginIndex "142" ;
+      nif:dependencyRelationType
+              "pobj" ;
+      nif:endIndex "160" ;
+      nif:head "9" ;
+      nif:phraseHead "http://conll.nlp2rdf.org/sentence.conll#char=139,141" ;
+      nif:posTag "NNP" ;
+      nif:sentence "http://conll.nlp2rdf.org/sentence.conll#char=63,215" .
+
+<http://conll.nlp2rdf.org/sentence.conll#char=161,163>
+      a       nif:Word , nif:String , nif:Phrase , nif:RFC5147String ;
+      nif:anchorOf "of" ;
+      nif:beginIndex "161" ;
+      nif:dependencyRelationType
+              "prep" ;
+      nif:endIndex "163" ;
+      nif:head "8" ;
+      nif:phraseHead "http://conll.nlp2rdf.org/sentence.conll#char=128,138" ;
+      nif:posTag "IN" ;
+      nif:sentence "http://conll.nlp2rdf.org/sentence.conll#char=63,215" .
+
+<http://conll.nlp2rdf.org/sentence.conll#char=0,215>
+      a       nif:String , nif:Context , nif:RFC5147String ;
+      nif:beginIndex "0" ;
+      nif:endIndex "215" ;
+      nif:isString """LinnUllmann ist die Tochter von LivUllmann und Ingmar Bergman.
+Johngrisham graduated from Mississippistate before attending the University of Mississippi_School of Law in 1981 and practiced criminal law for about a
+""" .
+
+<http://conll.nlp2rdf.org/sentence.conll#char=0,11>
+      a       nif:Word , nif:String , nif:Phrase , nif:RFC5147String ;
+      nif:anchorOf "LinnUllmann" ;
+      nif:beginIndex "0" ;
+      nif:dependencyRelationType
+              "subj" ;
+      nif:endIndex "11" ;
+      nif:head "2" ;
+      nif:lemma "LinnUllmann" ;
+      nif:phraseHead "http://conll.nlp2rdf.org/sentence.conll#char=12,15" ;
+      nif:posTag "NE" , "N" ;
+      nif:sentence "http://conll.nlp2rdf.org/sentence.conll#char=0,63" .
+
+<http://conll.nlp2rdf.org/sentence.conll#char=0,63>
+      a       nif:String , nif:Sentence , nif:RFC5147String ;
+      nif:anchorOf """LinnUllmann ist die Tochter von LivUllmann und Ingmar Bergman.
+""" ;
+      nif:beginIndex "0" ;
+      nif:endIndex "63" ;
+      nif:word "http://conll.nlp2rdf.org/sentence.conll#char=20,27" , "http://conll.nlp2rdf.org/sentence.conll#char=61,62" , "http://conll.nlp2rdf.org/sentence.conll#char=32,42" , "http://conll.nlp2rdf.org/sentence.conll#char=47,53" , "http://conll.nlp2rdf.org/sentence.conll#char=12,15" , "http://conll.nlp2rdf.org/sentence.conll#char=54,61" , "http://conll.nlp2rdf.org/sentence.conll#char=0,11" , "http://conll.nlp2rdf.org/sentence.conll#char=43,46" , "http://conll.nlp2rdf.org/sentence.conll#char=16,19" , "http://conll.nlp2rdf.org/sentence.conll#char=28,31" .
+
+<http://conll.nlp2rdf.org/sentence.conll#char=176,179>
+      a       nif:Word , nif:String , nif:Phrase , nif:RFC5147String ;
+      nif:anchorOf "and" ;
+      nif:beginIndex "176" ;
+      nif:dependencyRelationType
+              "cc" ;
+      nif:endIndex "179" ;
+      nif:head "6" ;
+      nif:phraseHead "http://conll.nlp2rdf.org/sentence.conll#char=114,123" ;
+      nif:posTag "CC" ;
+      nif:sentence "http://conll.nlp2rdf.org/sentence.conll#char=63,215" .
+
+nif:word
+      a       owl:ObjectProperty .
+
+<http://conll.nlp2rdf.org/sentence.conll#char=124,127>
+      a       nif:Word , nif:String , nif:Phrase , nif:RFC5147String ;
+      nif:anchorOf "the" ;
+      nif:beginIndex "124" ;
+      nif:dependencyRelationType
+              "det" ;
+      nif:endIndex "127" ;
+      nif:head "8" ;
+      nif:phraseHead "http://conll.nlp2rdf.org/sentence.conll#char=128,138" ;
+      nif:posTag "DT" ;
+      nif:sentence "http://conll.nlp2rdf.org/sentence.conll#char=63,215" .
+
+<http://conll.nlp2rdf.org/sentence.conll#char=128,138>
+      a       nif:Word , nif:String , nif:Phrase , nif:RFC5147String ;
+      nif:anchorOf "University" ;
+      nif:beginIndex "128" ;
+      nif:dependencyRelationType
+              "dobj" ;
+      nif:endIndex "138" ;
+      nif:head "6" ;
+      nif:phraseHead "http://conll.nlp2rdf.org/sentence.conll#char=114,123" ;
+      nif:posTag "NNP" ;
+      nif:sentence "http://conll.nlp2rdf.org/sentence.conll#char=63,215" .
+
+<http://conll.nlp2rdf.org/sentence.conll#char=28,31>
+      a       nif:Word , nif:String , nif:Phrase , nif:RFC5147String ;
+      nif:anchorOf "von" ;
+      nif:beginIndex "28" ;
+      nif:dependencyRelationType
+              "pp" ;
+      nif:endIndex "31" ;
+      nif:head "4" ;
+      nif:lemma "von" ;
+      nif:phraseHead "http://conll.nlp2rdf.org/sentence.conll#char=20,27" ;
+      nif:posTag "PREP" , "APPR" ;
+      nif:sentence "http://conll.nlp2rdf.org/sentence.conll#char=0,63" .
+
+nif:endIndex
+      a       owl:DatatypeProperty .
+
+<http://conll.nlp2rdf.org/sentence.conll#char=12,15>
+      a       nif:Word , nif:String , nif:Phrase , nif:RFC5147String ;
+      nif:anchorOf "ist" ;
+      nif:beginIndex "12" ;
+      nif:dependencyRelationType
+              "root" ;
+      nif:endIndex "15" ;
+      nif:lemma "sein" ;
+      nif:posTag "V" , "VAFIN" ;
+      nif:sentence "http://conll.nlp2rdf.org/sentence.conll#char=0,63" .
+
+nif:head
+      a       owl:DatatypeProperty .
+
+<http://conll.nlp2rdf.org/sentence.conll#char=54,61>
+      a       nif:Word , nif:String , nif:Phrase , nif:RFC5147String ;
+      nif:anchorOf "Bergman" ;
+      nif:beginIndex "54" ;
+      nif:dependencyRelationType
+              "app" ;
+      nif:endIndex "61" ;
+      nif:head "8" ;
+      nif:lemma "Bergman" ;
+      nif:phraseHead "http://conll.nlp2rdf.org/sentence.conll#char=47,53" ;
+      nif:posTag "NE" , "N" ;
+      nif:sentence "http://conll.nlp2rdf.org/sentence.conll#char=0,63" .
+
+<http://conll.nlp2rdf.org/sentence.conll#char=114,123>
+      a       nif:Word , nif:String , nif:Phrase , nif:RFC5147String ;
+      nif:anchorOf "attending" ;
+      nif:beginIndex "114" ;
+      nif:dependencyRelationType
+              "pcomp" ;
+      nif:endIndex "123" ;
+      nif:head "5" ;
+      nif:phraseHead "http://conll.nlp2rdf.org/sentence.conll#char=107,113" ;
+      nif:posTag "VBG" ;
+      nif:sentence "http://conll.nlp2rdf.org/sentence.conll#char=63,215" .
+
+<http://conll.nlp2rdf.org/sentence.conll#char=43,46>
+      a       nif:Word , nif:String , nif:Phrase , nif:RFC5147String ;
+      nif:anchorOf "und" ;
+      nif:beginIndex "43" ;
+      nif:dependencyRelationType
+              "kon" ;
+      nif:endIndex "46" ;
+      nif:head "6" ;
+      nif:lemma "und" ;
+      nif:phraseHead "http://conll.nlp2rdf.org/sentence.conll#char=32,42" ;
+      nif:posTag "KON" ;
+      nif:sentence "http://conll.nlp2rdf.org/sentence.conll#char=0,63" .
+
+<http://conll.nlp2rdf.org/sentence.conll#char=199,202>
+      a       nif:Word , nif:String , nif:Phrase , nif:RFC5147String ;
+      nif:anchorOf "law" ;
+      nif:beginIndex "199" ;
+      nif:dependencyRelationType
+              "conj" ;
+      nif:endIndex "202" ;
+      nif:head "6" ;
+      nif:phraseHead "http://conll.nlp2rdf.org/sentence.conll#char=114,123" ;
+      nif:posTag "NN" ;
+      nif:sentence "http://conll.nlp2rdf.org/sentence.conll#char=63,215" .
+
+<http://conll.nlp2rdf.org/sentence.conll#char=139,141>
+      a       nif:Word , nif:String , nif:Phrase , nif:RFC5147String ;
+      nif:anchorOf "of" ;
+      nif:beginIndex "139" ;
+      nif:dependencyRelationType
+              "prep" ;
+      nif:endIndex "141" ;
+      nif:head "8" ;
+      nif:phraseHead "http://conll.nlp2rdf.org/sentence.conll#char=128,138" ;
+      nif:posTag "IN" ;
+      nif:sentence "http://conll.nlp2rdf.org/sentence.conll#char=63,215" .
+
+<http://conll.nlp2rdf.org/sentence.conll#char=16,19>
+      a       nif:Word , nif:String , nif:Phrase , nif:RFC5147String ;
+      nif:anchorOf "die" ;
+      nif:beginIndex "16" ;
+      nif:dependencyRelationType
+              "det" ;
+      nif:endIndex "19" ;
+      nif:head "4" ;
+      nif:lemma "die" ;
+      nif:phraseHead "http://conll.nlp2rdf.org/sentence.conll#char=20,27" ;
+      nif:posTag "ART" ;
+      nif:sentence "http://conll.nlp2rdf.org/sentence.conll#char=0,63" .
+
+<http://conll.nlp2rdf.org/sentence.conll#char=90,106>
+      a       nif:Word , nif:String , nif:Phrase , nif:RFC5147String ;
+      nif:anchorOf "Mississippistate" ;
+      nif:beginIndex "90" ;
+      nif:dependencyRelationType
+              "pobj" ;
+      nif:endIndex "106" ;
+      nif:head "3" ;
+      nif:phraseHead "http://conll.nlp2rdf.org/sentence.conll#char=85,89" ;
+      nif:posTag "NNP" ;
+      nif:sentence "http://conll.nlp2rdf.org/sentence.conll#char=63,215" .
+
+<http://conll.nlp2rdf.org/sentence.conll#char=47,53>
+      a       nif:Word , nif:String , nif:Phrase , nif:RFC5147String ;
+      nif:anchorOf "Ingmar" ;
+      nif:beginIndex "47" ;
+      nif:dependencyRelationType
+              "cj" ;
+      nif:endIndex "53" ;
+      nif:head "7" ;
+      nif:lemma "Ingmar" ;
+      nif:phraseHead "http://conll.nlp2rdf.org/sentence.conll#char=43,46" ;
+      nif:posTag "NE" , "N" ;
+      nif:sentence "http://conll.nlp2rdf.org/sentence.conll#char=0,63" .
+
+nif:Context
+      a       owl:Class .
+
+<http://conll.nlp2rdf.org/sentence.conll#char=164,167>
+      a       nif:Word , nif:String , nif:Phrase , nif:RFC5147String ;
+      nif:anchorOf "Law" ;
+      nif:beginIndex "164" ;
+      nif:dependencyRelationType
+              "pobj" ;
+      nif:endIndex "167" ;
+      nif:head "11" ;
+      nif:phraseHead "http://conll.nlp2rdf.org/sentence.conll#char=161,163" ;
+      nif:posTag "NNP" ;
+      nif:sentence "http://conll.nlp2rdf.org/sentence.conll#char=63,215" .
+
+<http://conll.nlp2rdf.org/sentence.conll#char=85,89>
+      a       nif:Word , nif:String , nif:Phrase , nif:RFC5147String ;
+      nif:anchorOf "from" ;
+      nif:beginIndex "85" ;
+      nif:dependencyRelationType
+              "prep" ;
+      nif:endIndex "89" ;
+      nif:head "2" ;
+      nif:phraseHead "http://conll.nlp2rdf.org/sentence.conll#char=75,84" ;
+      nif:posTag "IN" ;
+      nif:sentence "http://conll.nlp2rdf.org/sentence.conll#char=63,215" .
+
+nif:sentence
+      a       owl:ObjectProperty .
+
+<http://conll.nlp2rdf.org/sentence.conll#char=63,215>
+      a       nif:String , nif:Sentence , nif:RFC5147String ;
+      nif:anchorOf """Johngrisham graduated from Mississippistate before attending the University of Mississippi_School of Law in 1981 and practiced criminal law for about a
+""" ;
+      nif:beginIndex "63" ;
+      nif:endIndex "215" ;
+      nif:word "http://conll.nlp2rdf.org/sentence.conll#char=107,113" , "http://conll.nlp2rdf.org/sentence.conll#char=142,160" , "http://conll.nlp2rdf.org/sentence.conll#char=63,74" , "http://conll.nlp2rdf.org/sentence.conll#char=161,163" , "http://conll.nlp2rdf.org/sentence.conll#char=213,214" , "http://conll.nlp2rdf.org/sentence.conll#char=171,175" , "http://conll.nlp2rdf.org/sentence.conll#char=203,206" , "http://conll.nlp2rdf.org/sentence.conll#char=199,202" , "http://conll.nlp2rdf.org/sentence.conll#char=114,123" , "http://conll.nlp2rdf.org/sentence.conll#char=139,141" , "http://conll.nlp2rdf.org/sentence.conll#char=75,84" , "http://conll.nlp2rdf.org/sentence.conll#char=90,106" , "http://conll.nlp2rdf.org/sentence.conll#char=85,89" , "http://conll.nlp2rdf.org/sentence.conll#char=164,167" , "http://conll.nlp2rdf.org/sentence.conll#char=176,179" , "http://conll.nlp2rdf.org/sentence.conll#char=124,127" , "http://conll.nlp2rdf.org/sentence.conll#char=207,212" , "http://conll.nlp2rdf.org/sentence.conll#char=180,189" , "http://conll.nlp2rdf.org/sentence.conll#char=168,170" , "http://conll.nlp2rdf.org/sentence.conll#char=128,138" , "http://conll.nlp2rdf.org/sentence.conll#char=190,198" .
+
+nif:beginIndex
+      a       owl:DatatypeProperty .
+
+nif:Word
+      a       owl:Class .
+
+<http://conll.nlp2rdf.org/sentence.conll#char=107,113>
+      a       nif:Word , nif:String , nif:Phrase , nif:RFC5147String ;
+      nif:anchorOf "before" ;
+      nif:beginIndex "107" ;
+      nif:dependencyRelationType
+              "prep" ;
+      nif:endIndex "113" ;
+      nif:head "2" ;
+      nif:phraseHead "http://conll.nlp2rdf.org/sentence.conll#char=75,84" ;
+      nif:posTag "IN" ;
+      nif:sentence "http://conll.nlp2rdf.org/sentence.conll#char=63,215" .
+
+nif:dependencyRelationType
+      a       owl:ObjectProperty ;
+      rdfs:comment "Dependency relation to the HEAD. The set of dependency relations depends on the particular language. Note that depending on the original treebank annotation, the dependency relation may be meaningful or simply 'ROOT'. " ;
+      rdfs:domain "http://persistence.uni-leipzig.org/nlp2rdf/ontologies/nif-core#Phrase" .
+
+<http://conll.nlp2rdf.org/sentence.conll#char=63,74>
+      a       nif:Word , nif:String , nif:Phrase , nif:RFC5147String ;
+      nif:anchorOf "Johngrisham" ;
+      nif:beginIndex "63" ;
+      nif:dependencyRelationType
+              "nsubj" ;
+      nif:endIndex "74" ;
+      nif:head "2" ;
+      nif:phraseHead "http://conll.nlp2rdf.org/sentence.conll#char=75,84" ;
+      nif:posTag "NNP" ;
+      nif:sentence "http://conll.nlp2rdf.org/sentence.conll#char=63,215" .
+
+<http://conll.nlp2rdf.org/sentence.conll#char=171,175>
+      a       nif:Word , nif:String , nif:Phrase , nif:RFC5147String ;
+      nif:anchorOf "1981" ;
+      nif:beginIndex "171" ;
+      nif:dependencyRelationType
+              "pobj" ;
+      nif:endIndex "175" ;
+      nif:head "13" ;
+      nif:phraseHead "http://conll.nlp2rdf.org/sentence.conll#char=168,170" ;
+      nif:posTag "CD" ;
+      nif:sentence "http://conll.nlp2rdf.org/sentence.conll#char=63,215" .
+
+<http://conll.nlp2rdf.org/sentence.conll#char=203,206>
+      a       nif:Word , nif:String , nif:Phrase , nif:RFC5147String ;
+      nif:anchorOf "for" ;
+      nif:beginIndex "203" ;
+      nif:dependencyRelationType
+              "prep" ;
+      nif:endIndex "206" ;
+      nif:head "6" ;
+      nif:phraseHead "http://conll.nlp2rdf.org/sentence.conll#char=114,123" ;
+      nif:posTag "IN" ;
+      nif:sentence "http://conll.nlp2rdf.org/sentence.conll#char=63,215" .
+
+nif:Sentence
+      a       owl:Class .
+
+nif:Phrase
+      a       owl:Class .
+
+<http://conll.nlp2rdf.org/sentence.conll#char=180,189>
+      a       nif:Word , nif:String , nif:Phrase , nif:RFC5147String ;
+      nif:anchorOf "practiced" ;
+      nif:beginIndex "180" ;
+      nif:dependencyRelationType
+              "amod" ;
+      nif:endIndex "189" ;
+      nif:head "18" ;
+      nif:phraseHead "http://conll.nlp2rdf.org/sentence.conll#char=199,202" ;
+      nif:posTag "VBN" ;
+      nif:sentence "http://conll.nlp2rdf.org/sentence.conll#char=63,215" .
+
+<http://conll.nlp2rdf.org/sentence.conll#char=168,170>
+      a       nif:Word , nif:String , nif:Phrase , nif:RFC5147String ;
+      nif:anchorOf "in" ;
+      nif:beginIndex "168" ;
+      nif:dependencyRelationType
+              "prep" ;
+      nif:endIndex "170" ;
+      nif:head "6" ;
+      nif:phraseHead "http://conll.nlp2rdf.org/sentence.conll#char=114,123" ;
+      nif:posTag "IN" ;
+      nif:sentence "http://conll.nlp2rdf.org/sentence.conll#char=63,215" .
+
