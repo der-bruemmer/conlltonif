@@ -16,18 +16,19 @@ import org.nlp2rdf.core.vocab.NIFObjectProperties;
 import org.nlp2rdf.core.vocab.NIFOntClasses;
 
 import com.hp.hpl.jena.ontology.Individual;
+import com.hp.hpl.jena.ontology.ObjectProperty;
 import com.hp.hpl.jena.ontology.OntModel;
 import com.hp.hpl.jena.ontology.OntModelSpec;
 import com.hp.hpl.jena.rdf.model.ModelFactory;
 import com.hp.hpl.jena.rdf.model.Statement;
 import com.hp.hpl.jena.rdf.model.StmtIterator;
 import com.hp.hpl.jena.util.ResourceUtils;
+import com.hp.hpl.jena.vocabulary.RDFS;
 
 /**
  * Converter to transform ConLL dependency format into NIF
  * 
  * TODO: How to map the different Tagsets
- * TODO: import NIF model
  * @author Martin Bruemmer
  * This software is part of the nlp2rdf project. Find out more at nlp2rdf.org
  *
@@ -89,8 +90,8 @@ public class ConLLToNIF {
 						offset = wordObjectsOfSentence.get(wordObjectsOfSentence.size()-1).getEnd()+1;
 						
 						//maybe there should be a jena model where this method just adds phrases to
-						this.addWordResourcesToModel(outputModel, wordObjectsOfSentence, sentenceResource, contextResource);
-						this.parseDependencyTree(wordObjectsOfSentence, outputModel, contextResource);
+						wordObjectsOfSentence = this.addWordResourcesToModel(outputModel, wordObjectsOfSentence, sentenceResource, contextResource);
+						this.parseDependencyTree(wordObjectsOfSentence, outputModel, sentenceResource, contextResource);
 					}
 					sentence = new ArrayList<String>();
 				}
@@ -111,7 +112,7 @@ public class ConLLToNIF {
 		return;
 	}
 	
-	private void addWordResourcesToModel(OntModel outputModel, List<ConLLWord> wordObjectsOfSentence, Individual sentenceResource, Individual contextResource) {
+	private List<ConLLWord> addWordResourcesToModel(OntModel outputModel, List<ConLLWord> wordObjectsOfSentence, Individual sentenceResource, Individual contextResource) {
 	 for(ConLLWord word : wordObjectsOfSentence) {
 		 String uri = contextResource.getURI().substring(0,contextResource.getURI().lastIndexOf("=")+1)+word.getStart()+","+word.getEnd();
 		 Individual wordResource = outputModel.createIndividual(uri, outputModel.createClass(NIFOntClasses.RFC5147String.getUri()));
@@ -127,9 +128,10 @@ public class ConLLToNIF {
 			 wordResource.addProperty(NIFDatatypeProperties.lemma.getDatatypeProperty(outputModel), word.getLemma());
 		 //TODO: add genus, numerus etc here
 		 wordResource.addProperty(NIFObjectProperties.sentence.getObjectProperty(outputModel), sentenceResource.getURI());
+		 word.setResource(wordResource);
 		 sentenceResource.addProperty(NIFObjectProperties.word.getObjectProperty(outputModel), wordResource.getURI());
 	 }
-	  
+	 return wordObjectsOfSentence;
   }
 
 	private Individual addSentenceResourceToModel(OntModel outputModel, String sentence, int startOffset, Individual context) {
@@ -147,15 +149,42 @@ public class ConLLToNIF {
 	
 	/**
 	 * Parse a dependency tree from generated objects
-	 * TODO: implement this thing
+	 * TODO: There are NIF properties missing to describe dependency relations from phrases to other phrases
+	 * TODO: What exactly is the "root" node? I will make this the sentence resource but that seems to be wrong. should there be an artificial "root" phrase? what does it contain? what offsets does it have?
 	 * @param sentenceObjects
 	 */
 
-	private void parseDependencyTree(List<ConLLWord> sentenceObjects, OntModel inputModel, Individual context) {
+	private void parseDependencyTree(List<ConLLWord> sentenceObjects, OntModel inputModel, Individual sentence, Individual context) {
 		//create the tree
+		//TODO: defining new property here, should be changed to work ootb
+		ObjectProperty phraseHead = inputModel.createObjectProperty("http://persistence.uni-leipzig.org/nlp2rdf/ontologies/nif-core#phraseHead");
+		phraseHead.addProperty(RDFS.comment, "The head of a Phrase.");
+		phraseHead.addProperty(RDFS.domain, NIFOntClasses.Phrase.getUri());
+		phraseHead.addProperty(RDFS.range, NIFOntClasses.Phrase.getUri());
+		
+		ObjectProperty depRelType = inputModel.createObjectProperty("http://persistence.uni-leipzig.org/nlp2rdf/ontologies/nif-core#dependencyRelationType");
+		depRelType.addProperty(RDFS.comment, "Dependency relation to the HEAD. The set of dependency relations depends on the particular language. Note that depending on the original treebank annotation, the dependency relation may be meaningful or simply 'ROOT'. ");
+		depRelType.addProperty(RDFS.domain, NIFOntClasses.Phrase.getUri());
+		
 		for(ConLLWord word : sentenceObjects) {
-			//test output
+			int phraseHeadId = word.getPhraseHeadId();
+			Individual wordResource = word.getResource();
+			//every word is a phrase
+			wordResource.addOntClass(NIFOntClasses.Phrase.getOntClass(inputModel));
 			
+			if(phraseHeadId == 0) {
+				//root node, making the sentence the head
+				wordResource.addProperty(depRelType, word.getPhraseType());
+				
+			} else {
+				//ids start with 1, List<> indexes starts with 0
+				ConLLWord phraseHeadObject = sentenceObjects.get(phraseHeadId-1);
+				
+				wordResource.addProperty(phraseHead, phraseHeadObject.getResource().getURI());
+				wordResource.addProperty(NIFDatatypeProperties.head.getDatatypeProperty(inputModel), String.valueOf(phraseHeadId));
+				wordResource.addProperty(depRelType, word.getPhraseType());
+				
+			}
 		}
 	}
 	

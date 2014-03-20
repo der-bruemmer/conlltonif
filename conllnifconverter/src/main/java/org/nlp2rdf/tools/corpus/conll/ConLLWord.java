@@ -1,5 +1,7 @@
 package org.nlp2rdf.tools.corpus.conll;
 
+import com.hp.hpl.jena.ontology.Individual;
+
 public class ConLLWord {
 
 	private int wordId = 0;
@@ -13,10 +15,19 @@ public class ConLLWord {
 	private String morphs = "";
 	private int phraseHeadId = 0;
 	private String phraseType = "";
+	private Individual resource = null;
 	
 	
 	public ConLLWord() {
 		
+	}
+
+	public Individual getResource() {
+		return resource;
+	}
+
+	public void setResource(Individual resource) {
+		this.resource = resource;
 	}
 
 	public int getWordId() {
